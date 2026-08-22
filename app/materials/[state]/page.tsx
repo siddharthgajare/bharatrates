@@ -1,5 +1,8 @@
 'use client';
 
+// Force this dynamic route to be rendered on-demand at runtime rather than static export build time
+export const dynamic = 'force-dynamic';
+
 import { useEffect, useMemo, useState, useCallback } from 'react';
 import Link from 'next/link';
 import {
