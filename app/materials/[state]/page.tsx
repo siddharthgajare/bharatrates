@@ -1,8 +1,5 @@
 'use client';
 
-// Force this dynamic route to be rendered on-demand at runtime rather than static export build time
-export const dynamic = 'force-dynamic';
-
 import { useEffect, useMemo, useState, useCallback } from 'react';
 import Link from 'next/link';
 import {
@@ -25,6 +22,13 @@ import {
   type MaterialPrice,
 } from '@/lib/materials';
 import { supabase } from '@/lib/supabase';
+
+// Required for static/edge adapters to recognize dynamic state slugs during build
+export function generateStaticParams() {
+  return STATES.map((s) => ({
+    state: s.name.toLowerCase().replace(/[^a-z]+/g, '-'),
+  }));
+}
 
 type SortKey = 'material' | 'city' | 'category' | 'price' | 'change';
 type SortDir = 'asc' | 'desc';
