@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://bharatrates.pages.dev'),
   title: 'BharatRates — Live Civil Material Prices Across India',
   description:
     'Real-time AI-backed daily prices for steel, cement, sand and aggregates across Indian states.',
